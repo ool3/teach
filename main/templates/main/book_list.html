@@ -9,16 +9,20 @@
 		<div class="list-books">
 			{% for book in books %}
 				{% if list == book.list_book %}
-				<div class="book-items">
-					<div class="card-body" id="card-body">
-					    {% if book.url %}
-					    	<a class="data-btn" href="{{book.url}}"><h5 class=" card-title">{{book.title}}</h5></a>
-					    {% else %}
-					    	<h5 class="card-title">{{book.title}}</h5>
-					    {% endif %}
-					    <small><p class="card-text">-{{book.author}}-</p></small>
-					  </div>
-				</div>
+				<div class="card p-3">
+				    <blockquote class="blockquote mb-0 card-body">
+				    {% if book.url %}
+				      <a href="{{book.url}}"><p>{{book.title}}</p></a>
+				    {%else%}
+				    <p>{{book.title}}</p>
+				   	{% endif %}
+				      <footer class="blockquote-footer">
+				        <small class="text-muted">
+				          <cite title="Source Title">{{book.author}}</cite>
+				        </small>
+				      </footer>
+				    </blockquote>
+				  </div>
 				{% endif %}
 			{% endfor %}
 		</div>
